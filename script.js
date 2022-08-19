@@ -2,7 +2,7 @@
 // putting it in the js file for the sake of minimalism.
 
 const config = {
-    name: "fuenix"
+    name: "<your name here>"
 }
 
 const bookmarks = {
