@@ -2,11 +2,12 @@
 // putting it in the js file for the sake of minimalism.
 
 const config = {
-    name: "<your name here>"
+    name: `[i think you forgot to edit config lolxd]`
 }
 
 const bookmarks = {
 // Group names must be different.
+// The hot**key** is literally the key for each bookmark lol
 
 // x: {
 //     name: "",
@@ -81,13 +82,10 @@ const TODMessage = () => {
 
 const detectKeyPress = (bookmarks, config) => {
     addEventListener("keypress", (e) => {
-        console.log(e.key);
         for (const [key, val] of Object.entries(bookmarks)) {
             for (const [bkKey, bkVal] of Object.entries(val)) {
-
                 if (!bkVal.name || !bkVal.url) continue;
                 if (e.key === bkKey) {
-                    console.log(bkVal.url);
                     window.location.href = bkVal.url;
                 }
             }
@@ -96,7 +94,6 @@ const detectKeyPress = (bookmarks, config) => {
 }
 
 const populateBookmarks = () => {
-
     class Bookmarks extends HTMLElement {
         constructor() {
             super();
