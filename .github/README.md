@@ -22,7 +22,7 @@ Github has a lot of startpage repos. However, the vast majority of them are slow
 * NO BLOATED FRAMEWORK!
 
 ## Advice
-Install fonts locally and modify the html \<link\> in order to not need the internet for it to load nicely. Or, the change the font to something you already have installed. ez 
+Install the used font and modify the html \<link\> in order to not need the internet for it to load nicely. Or, the change the font to something you already have installed. ez 
 
 ## Anything else?
 Feel free to contribute.
