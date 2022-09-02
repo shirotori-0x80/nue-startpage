@@ -23,8 +23,11 @@ Github has a lot of startpage repos. However, the vast majority of them are slow
 * 100% garunteed to work with any screen/window size and not look broken.
 * NO BLOATED FRAMEWORK!
 
+## Installation
+I reccomend signing nue-startpage as a web extension per deepjyoti30's instructions [for his startpage](https://github.com/deepjyoti30/startpage/wiki/Installation).
+
 ## Advice
 Install the used font and modify the html \<link\> in order to not need the internet for it to load nicely. Or, change the font to something you already have installed. ez 
 
 ## Anything else?
-Feel free to contribute.
+Feel free to contribute, and please give credit if you have to.
