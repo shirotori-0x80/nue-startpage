@@ -1,7 +1,7 @@
 <h2></h2><br>
 
 <p align="center">
- ## Nue Startpage
+ <b>Nue Startpage</b>
 </p>
 
 <h2></h2><br>
