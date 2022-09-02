@@ -7,7 +7,8 @@
 <h2></h2><br>
 
 <div align="center">
-    <img src="startpage.png" alt="Startpage Preview">
+    <img src="Screenshot 1.png" alt="Startpage Preview">
+    <img src="Screenshot 2.png" alt="Startpage Preview">
 </div>
 
 ## Why should I use this startpage?
