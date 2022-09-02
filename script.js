@@ -1,13 +1,28 @@
-// A spun up web server would be needed for a seperate config file, so we're going to stick with
-// putting it in the js file for the sake of minimalism.
-
 const config = {
-    name: `[i think you forgot to edit config lolxd]`
+    name: `[your name here]`,
+    themes: {
+        default: {
+            "bgColor": "#FFF",
+            "groupColor": "#FFDFCD",
+            "textColor": "#000",
+            "textHoverColor": "#C14600"
+        },
+        darkColors: {
+            "timeOfDay": true,
+            // Times (24hr) that dark mode will be turned on and off.
+            "themeBegin": 19,
+            "themeEnd": 7,
+
+            "bgColor": "#121212",
+            "groupColor": "#1D1D1D",
+            "textColor": "#FFF",
+            "textHoverColor": "#FFDFCD"
+        }
+    }
 }
 
 const bookmarks = {
 // Group names must be different.
-// The hot**key** is literally the key for each bookmark lol
 
 // x: {
 //     name: "",
@@ -53,7 +68,7 @@ const bookmarks = {
     }
 }
 
-const TODMessage = () => {
+const todMessage = () => {
     const date = new Date();
     const hour = date.getHours();
     let message;
@@ -78,6 +93,34 @@ const TODMessage = () => {
     }
 
     return message;
+}
+
+const todTheme = (theme) => {
+    if (config.themes[theme].timeOfDay === false) {
+        return;
+    }
+
+    const date = new Date();
+    const hour = date.getHours();
+
+    if ((hour >= config.themes[theme].themeBegin) ||  hour < config.themes[theme].themeEnd) {
+        injectColors(theme);
+    } else {
+        injectColors("default");
+    }
+}
+
+const injectColors = (theme) => {
+    if(theme == null) {
+        // TODO: validate input
+        console.error(`Theme "${theme}" doesn't exist`);
+    }
+
+    const root = document.documentElement;
+    root.style.setProperty("--bg-color", config.themes[theme].bgColor);
+    root.style.setProperty("--group-color", config.themes[theme].groupColor);
+    root.style.setProperty("--text-color", config.themes[theme].textColor);
+    root.style.setProperty("--text-hover-color", config.themes[theme].textHoverColor);
 }
 
 const detectKeyPress = (bookmarks, config) => {
@@ -132,7 +175,8 @@ const populateBookmarks = () => {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-    document.querySelector("#header").innerHTML = TODMessage();
+    document.querySelector("#header").innerHTML = todMessage();
+    todTheme("darkColors") 
     populateBookmarks();
     detectKeyPress(bookmarks, config);
 });    

@@ -72,7 +72,7 @@ a:hover {
     font-weight: 700;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1300px) {
     .row {
         width: 100%
     }
