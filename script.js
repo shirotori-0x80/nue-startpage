@@ -1,5 +1,5 @@
 const config = {
-    name: `Chad Wojack`,
+    name: "Chad Wojack",
     detectKeyPress: true,
     useTheme: "darkColors",
     themes: {
