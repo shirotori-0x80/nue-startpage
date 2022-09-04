@@ -24,10 +24,12 @@ Github has a lot of startpage repos. However, the vast majority of them are slow
 * NO BLOATED FRAMEWORK!
 
 ## Installation
-I reccomend signing nue-startpage as a web extension per deepjyoti30's instructions [for his startpage](https://github.com/deepjyoti30/startpage/wiki/Installation).
+I reccomend signing Nue Startpage as a web extension per deepjyoti30's instructions [for his startpage](https://github.com/deepjyoti30/startpage/wiki/Installation).
 
-## Advice
-Install the used font and modify the html \<link\> in order to not need the internet for it to load nicely. Or, change the font to something you already have installed. ez 
+## Configuration
+Install the used font and modify the html \<link\> so you don't need the internet for it to load nicely. Or, change the font to something you already have installed.
+
+Regarding the configuration in script.js, all the needed/optional values are included and should be pretty self explanatory. 
 
 ## Anything else?
-Feel free to contribute, and please give credit if you have to.
+Feel free to contribute, and if you share this or use some part of it in your own work, please give credit.
