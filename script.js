@@ -1,8 +1,9 @@
 const config = {
     name: `Chad Wojack`,
     detectKeyPress: true,
-    useTheme: "default",
+    useTheme: "darkColors",
     themes: {
+        // A "default" theme is necessary to use another theme with timeOfDay.
         default: {
             "bgColor": "#FFF",
             "groupColor": "#FFDFCD",
@@ -11,9 +12,9 @@ const config = {
         },
         darkColors: {
             "timeOfDay": true,
-            // Times (24hr) that dark mode will be turned on and off.
+            // Times (24hr) that the theme will be turned on and off.
             "themeBegin": 15,
-            "themeEnd": 1,
+            "themeEnd": 8,
 
             "bgColor": "#121212",
             "groupColor": "#1D1D1D",
