@@ -25,12 +25,12 @@ const config = {
 }
 
 const bookmarks = {
-// Group names must be different.
+// Group names must be different. Link must also be full URLs.
 
     "Study": {
         a: {
             name: "Change me!",
-            url: "#"
+            url: "google.com"
         },
         b: {
             name: "Change me!",
