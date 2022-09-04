@@ -1,5 +1,7 @@
 const config = {
-    name: `[your name here]`,
+    name: `Chad Wojack`,
+    detectKeyPress: true,
+    useTheme: "default",
     themes: {
         default: {
             "bgColor": "#FFF",
@@ -10,8 +12,8 @@ const config = {
         darkColors: {
             "timeOfDay": true,
             // Times (24hr) that dark mode will be turned on and off.
-            "themeBegin": 19,
-            "themeEnd": 7,
+            "themeBegin": 15,
+            "themeEnd": 1,
 
             "bgColor": "#121212",
             "groupColor": "#1D1D1D",
@@ -24,48 +26,44 @@ const config = {
 const bookmarks = {
 // Group names must be different.
 
-// x: {
-//     name: "",
-//     url: ""
-// },
     "Study": {
-        o: {
-            name: "Outlook",
-            url: "https://outlook.office.com/mail/"
-        },
-        n: {
-            name: "Notion",
-            url: "https://www.notion.so/"
+        a: {
+            name: "Change me!",
+            url: "#"
         },
         b: {
-            name: "MyBib",
-            url: "https://www.mybib.com/#/"
+            name: "Change me!",
+            url: "#"
+        },
+        c: {
+            name: "Change me!",
+            url: "#"
         }
     },
     "Work": {
-        p: {
-            name: "Protonmail",
-            url: "https://mail.proton.me/u/0/inbox"
+        d: {
+            name: "Change me!",
+            url: "#"
         },
     },
     "Leisure": {
-        w: {
-            name: "WaniKani",
-            url: "https://www.wanikani.com/dashboard"
+        e: {
+            name: "Change me!",
+            url: "#"
         },
-        t: {
-            name: "Touhou Wiki",
-            url: "https://en.touhouwiki.net/wiki/Touhou_Wiki"
+        f: {
+            name: "Change me!",
+            url: "#"
+        },
+        g: {
+            name: "Change me!",
+            url: "#"
         },
         h: {
-            name: "Hacker News",
-            url: "https://news.ycombinator.com/"
+            name: "Change me!",
+            url: "#"
         },
-        s: {
-            name: "Spotify",
-            url: "https://open.spotify.com/"
-        },
-    }
+    },
 }
 
 const todMessage = () => {
@@ -73,6 +71,7 @@ const todMessage = () => {
     const hour = date.getHours();
     let message;
 
+    // TODO: make this function less dry.
     if ((hour => 0) && (hour < 5)) {
         message = `You're up pretty late, ${config.name}.`;
     }
@@ -95,27 +94,34 @@ const todMessage = () => {
     return message;
 }
 
-const todTheme = (theme) => {
-    if (config.themes[theme].timeOfDay === false) {
-        return;
+const setTheme = (theme) => {
+    if (!config.themes.hasOwnProperty(theme)) {
+        window.alert(`Error: theme "${theme}" does not exist.`);
+    }
+
+    if (!config.themes[theme].timeOfDay) {
+        injectColors(theme);
     }
 
     const date = new Date();
     const hour = date.getHours();
+    const begin = config.themes[theme].themeBegin;
+    const end = config.themes[theme].themeEnd;
 
-    if ((hour >= config.themes[theme].themeBegin) ||  hour < config.themes[theme].themeEnd) {
-        injectColors(theme);
+    if ((begin || end) > 24) {
+        return window.alert("Error: theme begin/end values are not 0-24.");
+    }
+
+    if (begin < end) {
+        // if between specified times, use selected theme.
+        if ((hour >= begin) && (hour <= end)) injectColors(theme);
     } else {
-        injectColors("default");
+        // if between begin-24 or 0-end, use selected theme.
+        if ((hour >= begin) || (hour <= end)) injectColors(theme);
     }
 }
 
 const injectColors = (theme) => {
-    if(theme == null) {
-        // TODO: validate input
-        console.error(`Theme "${theme}" doesn't exist`);
-    }
-
     const root = document.documentElement;
     root.style.setProperty("--bg-color", config.themes[theme].bgColor);
     root.style.setProperty("--group-color", config.themes[theme].groupColor);
@@ -176,8 +182,8 @@ const populateBookmarks = () => {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     document.querySelector("#header").innerHTML = todMessage();
-    todTheme("darkColors") 
     populateBookmarks();
-    detectKeyPress(bookmarks, config);
+    if (config.useTheme) setTheme(config.useTheme);
+    if (config.detectKeyPress) detectKeyPress(bookmarks, config);
 });    
 
