@@ -1,4 +1,5 @@
 :root {
+    /* These values are used as a backup incase if no theme is loaded. */
     --bg-color: #fff;
     --group-color: #FFDFCD;
     --text-color: #000;
