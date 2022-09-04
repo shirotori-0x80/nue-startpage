@@ -30,7 +30,7 @@ const bookmarks = {
     "Study": {
         a: {
             name: "Change me!",
-            url: "google.com"
+            url: "#"
         },
         b: {
             name: "Change me!",
