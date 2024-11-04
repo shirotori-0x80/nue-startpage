@@ -1,78 +1,91 @@
 const config = {
-    name: "Chad Wojack",
+    name: "Grant",
     detectKeyPress: true,
-    useTheme: "darkColors",
+    useTheme: "default",
     themes: {
         // A "default" theme is necessary to use another theme with timeOfDay.
         default: {
-            "bgColor": "#FFF",
-            "groupColor": "#FFDFCD",
-            "textColor": "#000",
-            "textHoverColor": "#C14600"
-        },
-        darkColors: {
-            "timeOfDay": true,
-            // Times (24hr) that the theme will be turned on and off.
-            "themeBegin": 15,
-            "themeEnd": 8,
-
-            "bgColor": "#121212",
+            "bgColor": "#232323",
             "groupColor": "#1D1D1D",
-            "textColor": "#FFF",
-            "textHoverColor": "#FFDFCD"
-        }
+            "textColor": "#FFDFCD",
+            "textHoverColor": "#FFF"
+        },
+//        darkColors: {
+//            "timeOfDay": true,
+//            // Times (24hr) that the theme will be turned on and off.
+//            "themeBegin": 15,
+//            "themeEnd": 8,
+
+//            "bgColor": "#232323",
+//            "groupColor": "#1D1D1D",
+//            "textColor": "#FFDFCD",
+//            "textHoverColor": "#FFF"
+//        }
     }
 }
-
+//TODO: add some icons?
 const bookmarks = {
 // Group names must be different. Link must also be full URLs.
 
-    "Study": {
-        a: {
-            name: "Change me!",
-            url: "#"
-        },
-        b: {
-            name: "Change me!",
-            url: "#"
-        },
-        c: {
-            name: "Change me!",
-            url: "#"
-        }
-    },
     "Work": {
-        d: {
-            name: "Change me!",
-            url: "#"
-        },
-    },
-    "Leisure": {
-        e: {
-            name: "Change me!",
-            url: "#"
-        },
-        f: {
-            name: "Change me!",
-            url: "#"
+        c: {
+            name: "Canvas",
+            url: "https://elearning.ufl.edu"
         },
         g: {
-            name: "Change me!",
-            url: "#"
+            name: "GitHub",
+            url: "https://github.com"
         },
-        h: {
-            name: "Change me!",
-            url: "#"
+        w: {
+            name: "Arch Wiki",
+            url: "https://wiki.archlinux.org"
+        },
+    },
+    "Chill": {
+        x: {
+            name: "Twitter",
+            url: "https://twitter.com/home"
+        },
+        y: {
+            name: "YouTube",
+            url: "https://www.youtube.com"
+        },
+        d: {
+            name: "Discord",
+            url: "https://discord.com/channels/@me"
+        },
+    },
+    "Japanese": {
+        j: {
+            name: "Jisho.org",
+            url: "https://jisho.org"
+        },
+        m: {
+            name: "Mokuro",
+            url: "https://reader.mokuro.app"
+        },
+        t: {
+            name: "EPub Reader",
+            url: "https://reader.ttsu.app/manage"
+        },
+    },
+    "Bookmarks": {
+        o: {
+            name: "osu! profile",
+            url: "https://osu.ppy.sh/users/13252450"
+        },
+        p: {
+            name: "Thingiverse",
+            url: "https://www.thingiverse.com"
         },
     },
 }
-
+//TODO: Display time of day
 const todMessage = () => {
     const date = new Date();
     const hour = date.getHours();
     let message;
 
-    // TODO: make this function less dry.
     if ((hour => 0) && (hour < 5)) {
         message = `You're up pretty late, ${config.name}.`;
     }
@@ -89,12 +102,12 @@ const todMessage = () => {
         message = `Good evening, ${config.name}.`;
     }
     else if ((hour => 20) && (hour < 24)) {
-        message = `Time to wrap things up, ${config.name}.`;
+        message = `You should get some sleep, ${config.name}.`;
     }
 
     return message;
 }
-
+//TODO: Add weather?
 const setTheme = (theme) => {
     if (!config.themes.hasOwnProperty(theme)) {
         window.alert(`Error: theme "${theme}" does not exist.`);
